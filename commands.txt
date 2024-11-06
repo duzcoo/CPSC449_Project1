@@ -1,0 +1,117 @@
+Register a New User
+Method: POST
+URL: http://127.0.0.1:5000/auth/register
+  Body: 
+      {
+    "username": "demoUser",
+    "email": "demo@example.com",
+    "password": "password123"
+}
+
+Expected Response: 201 Created
+----------------------------------------------------------
+Login
+Method: POST
+URL: http://127.0.0.1:5000/auth/login
+  Body:
+    {
+    "username": "demoUser",
+    "password": "password123"
+}
+
+Expected Response: 200 OK
+----------------------------------------------------------
+Create a New Inventory Item
+
+Method: POST
+
+URL: http://127.0.0.1:5000/inventory/items
+  Body:
+    {
+    "item_name": "Laptop",
+    "description": "A high-performance laptop",
+    "quantity": 5,
+    "price": 1200.00
+}
+
+
+Expected Response: 201 Created
+----------------------------------------------------------
+Step 4: Get All Inventory Items
+
+Method: GET
+
+URL: http://127.0.0.1:5000/inventory/items
+
+Body:
+  JSON: [
+    {
+        "id": 1,
+        "item_name": "Laptop",
+        "description": "A high-performance laptop",
+        "quantity": 5,
+        "price": 1200.00
+    }
+]
+Expected Response:
+
+    Status: 200 OK
+
+----------------------------------------------------------
+Get a Specific Inventory Item
+
+Method: GET
+
+URL: http://127.0.0.1:5000/inventory/items/1
+
+Expected Response:
+
+    Status: 200 OK
+    Body:
+
+{
+    "id": 1,
+    "item_name": "Laptop",
+    "description": "A high-performance laptop",
+    "quantity": 5,
+    "price": 1200.00
+}
+----------------------------------------------------------
+Update an Inventory Item
+
+Method: PUT
+
+URL: http://127.0.0.1:5000/inventory/items/1
+
+Body:
+  {
+    "item_name": "Laptop Pro",
+    "description": "An upgraded high-performance laptop",
+    "quantity": 3,
+    "price": 1400.00
+}
+----------------------------------------------------------
+Delete an Inventory Item
+
+Method: DELETE
+
+URL: http://127.0.0.1:5000/inventory/items/1
+
+Expected Response:
+
+    Status: 200 OK
+----------------------------------------------------------
+Log Out
+
+Method: GET
+
+URL: http://127.0.0.1:5000/auth/logout
+
+Expected Response:
+
+    Status: 200 OK
+    Body:
+
+{
+    "message": "Logged out successfully!"
+}
